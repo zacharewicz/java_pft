@@ -3,11 +3,10 @@ package ru.stqa.pft.sandbox;
 public class MyFirstProgram {
 
     public static void main(String[] args) {
-        String somebody = "Pandy";
-        System.out.println("Hello, " + somebody + " :-)");
+        hello();
+    }
 
-        double l = 8.0;
-        double s = l * l;
-        System.out.println("Pole kwadratu o boku " + l + " = " + s);
+    public static void hello() {
+        System.out.println("Hello, world!");
     }
 }
