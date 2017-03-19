@@ -3,7 +3,7 @@ package ru.stqa.pft.sandbox;
 public class MyFirstProgram {
 
     public static void main(String[] args) {
-        String somebody = "Pandy";
+        String somebody = "Wspaniałe Pandy";
         System.out.println("Hello, " + somebody + " :-)");
 
         double l = 8.0;
