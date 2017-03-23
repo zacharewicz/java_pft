@@ -6,7 +6,6 @@ public class MyFirstProgram {
 
 
     Square s = new Square(5);
-    s.l = 5;
     System.out.println("Powierzchnia kwadratu o boku " + s.l + " = " + area(s));
 
     Rectangle r = new Rectangle(4,6);
