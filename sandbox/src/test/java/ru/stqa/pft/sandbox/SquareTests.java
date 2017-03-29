@@ -1,10 +1,11 @@
-package ru.stqa.pft.sandox;
+package ru.stqa.pft.sandbox;
 
 import org.testng.annotations.Test;
 
 /**
  * Created by zacharewicz on 2017-03-29.
  */
+
 
 public class SquareTests {
 
