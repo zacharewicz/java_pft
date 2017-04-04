@@ -14,38 +14,39 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 import static org.openqa.selenium.OutputType.*;
 
-public class Plik7 {
+public class AddressTest1 {
     FirefoxDriver wd;
     
     @BeforeMethod
     public void setUp() throws Exception {
-        System.setProperty("webdriver.gecko.driver","c:\\Tools\\geckodriver.exe");
         wd = new FirefoxDriver();
-        wd.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     }
     
     @Test
-    public void Plik7() {
+    public void AddressTest1() {
         wd.get("http://localhost/addressbook/");
         wd.findElement(By.name("pass")).click();
         wd.findElement(By.name("pass")).sendKeys("\\undefined");
-        wd.findElement(By.cssSelector("html")).click();
+        wd.findElement(By.xpath("//div[@id='header']/a/img")).click();
+        wd.findElement(By.name("user")).click();
+        wd.findElement(By.name("user")).sendKeys("\\undefined");
+        wd.findElement(By.name("pass")).click();
+        wd.findElement(By.name("pass")).sendKeys("\\undefined");
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();
         wd.findElement(By.name("user")).sendKeys("admin");
-        wd.findElement(By.id("LoginForm")).click();
+        wd.findElement(By.id("content")).click();
         wd.findElement(By.name("pass")).click();
         wd.findElement(By.name("pass")).clear();
         wd.findElement(By.name("pass")).sendKeys("secret");
         wd.findElement(By.id("LoginForm")).click();
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-        wd.findElement(By.linkText("groups")).click();
-        wd.findElement(By.linkText("next birthdays")).click();
         wd.findElement(By.linkText("Logout")).click();
-        wd.findElement(By.name("pass")).click();
-        wd.findElement(By.name("pass")).sendKeys("\\undefined");
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).sendKeys("\\undefined");
+        wd.findElement(By.name("pass")).click();
+        wd.findElement(By.name("pass")).sendKeys("\\undefined");
     }
     
     @AfterMethod
