@@ -36,7 +36,7 @@ public class AddNewAddress {
 
   @Test
   public void testAddNewAddress() {
-    createNewAddressBookForClient("Anna", "Kowalska", "+48888888888", "anna.kowalska@gmail.com");
+    createNewAddressBookForClient(new NewClientData("Anna", "Kowalska", "+48888888888", "anna.kowalska@gmail.com"));
     submitNewAddressBookForClient();
     backToHomePage();
 
@@ -50,20 +50,20 @@ public class AddNewAddress {
     wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
   }
 
-  private void createNewAddressBookForClient(String ClientName, String ClientSurname, String ClientPhone, String ClientMail) {
+  private void createNewAddressBookForClient(NewClientData newClientData) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(ClientName);
+    wd.findElement(By.name("firstname")).sendKeys(newClientData.getClientName());
     wd.findElement(By.name("middlename")).click();
     wd.findElement(By.name("lastname")).click();
     wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(ClientSurname);
+    wd.findElement(By.name("lastname")).sendKeys(newClientData.getClientSurname());
     wd.findElement(By.name("mobile")).click();
     wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys(ClientPhone);
+    wd.findElement(By.name("mobile")).sendKeys(newClientData.getClientPhone());
     wd.findElement(By.name("email")).click();
     wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(ClientMail);
+    wd.findElement(By.name("email")).sendKeys(newClientData.getClientMail());
   }
 
   @AfterMethod
