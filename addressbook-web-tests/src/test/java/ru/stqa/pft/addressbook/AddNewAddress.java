@@ -21,10 +21,6 @@ public class AddNewAddress {
     public void setUp() throws Exception {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-    }
-    
-    @Test
-    public void AddNewAddress() {
         wd.get("http://localhost/addressbook/edit.php");
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();
@@ -33,6 +29,11 @@ public class AddNewAddress {
         wd.findElement(By.name("pass")).clear();
         wd.findElement(By.name("pass")).sendKeys("secret");
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
+    }
+    
+    @Test
+    public void newAddressAdd() {
+
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
         wd.findElement(By.name("firstname")).sendKeys("Anna");
@@ -48,7 +49,7 @@ public class AddNewAddress {
         wd.findElement(By.name("email")).sendKeys("anna.kowalska@gmail.com");
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
         wd.findElement(By.id("content")).click();
-        wd.findElement(By.linkText("Logout")).click();
+
     }
     
     @AfterMethod
@@ -57,11 +58,17 @@ public class AddNewAddress {
     }
     
     public static boolean isAlertPresent(FirefoxDriver wd) {
+
+        wd.findElement(By.linkText("Logout")).click();
+
         try {
             wd.switchTo().alert();
             return true;
         } catch (NoAlertPresentException e) {
             return false;
+
+
         }
+
     }
 }
