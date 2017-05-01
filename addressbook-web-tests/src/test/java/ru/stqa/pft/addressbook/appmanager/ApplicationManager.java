@@ -3,7 +3,6 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.concurrent.TimeUnit;
 
@@ -77,5 +76,27 @@ public class ApplicationManager {
 
   public void selectGroup() {
       wd.findElement(By.name("selected[]")).click();
+  }
+
+  public static class GroupData {
+    private final String name;
+    private final String header;
+    private final String footer;
+
+    public GroupData(String name, String header, String footer) {
+      this.name = name;
+      this.header = header;
+      this.footer = footer;
+    }
+
+    public String getName() {
+      return name;
+    }
+    public String getHeader() {
+      return header;
+    }
+    public String getFooter() {
+      return footer;
+    }
   }
 }
